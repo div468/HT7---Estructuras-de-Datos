@@ -28,7 +28,7 @@ public class BST<T extends Comparable<T>>{
      * Método encargado de añadir un Nodo al BST, en base al priceCurrent del objeto producto,que es el valor del Nodo
      * @param producto el objeto producto asociado al nuevo nodo a crearse en el BST
      */
-    public void añadirNodo(Producto producto){
+    public void nuevoNodo(Producto producto){
         Nodo nodo = new Nodo(producto);
         if (raiz == null){
             raiz = nodo;
@@ -54,5 +54,26 @@ public class BST<T extends Comparable<T>>{
                 }
             }
         }
+    }
+
+    /**
+     * Método encargado de recorrer el BST en orden
+     * @param nodo nodo donde se inicia el recorrido del arbol
+     */
+    public void recorridoInOrder(Nodo nodo){
+        if(nodo != null){
+            recorridoInOrder(nodo.getLeftNode());
+
+            System.out.println(nodo);
+
+            recorridoInOrder(nodo.getRightNode());
+        }
+    }
+
+    /*
+     * Getter de la raiz del arbol
+     */
+    public Nodo getRaiz() {
+        return raiz;
     }
 }
