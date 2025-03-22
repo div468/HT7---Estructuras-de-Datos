@@ -18,6 +18,13 @@ public class BST<T extends Comparable<T>>{
     private Nodo raiz;
 
     /**
+     * Se inicializa el BST de forma nula para asegurar un correcto orden de nodos.
+     */
+    public BST(){
+        this.raiz = null;
+    }
+    
+    /**
      * Método encargado de añadir un Nodo al BST, en base al priceCurrent del objeto producto,que es el valor del Nodo
      * @param producto el objeto asociado al nuevo nodo a crearse en el BST
      */
