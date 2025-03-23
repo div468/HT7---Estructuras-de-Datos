@@ -11,12 +11,12 @@ Esta tarea consiste en una implementación de un **Binary Search Tree (BST)** en
     cd HT7---Estructuras-de-Datos
     ```
 
-2. Compilar el intérprete:
+2. Compilar el programa:
     ```bash 
     javac -d out src/main/java/com/HT7/*.java
     ```
 
-3. Ejecutar el intérprete.
+3. Ejecutar el programa.
     ```bash
     cd out
     java com.HT7.Main
