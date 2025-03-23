@@ -3,7 +3,7 @@
  * Universidad del Valle de Guatemala
  * Algoritmos y Estructuras de Datos
  * Ing. Douglas Barrios
- * @author: Julián Divas
+ * @author: Julián Divas, Marcelo Detlefsen
  * Creación: 22/03/2025
  * última modificación: 22/03/2025
  * File Name: BST.java
@@ -56,7 +56,7 @@ public class BST<T extends Comparable<T>>{
         }
     }
 
-    /**
+        /**
      * Método encargado de buscar un producto en el BST en base a su SKU
      * @param sku código único SKU del producto a buscar
      * @return el producto asociado al SKU buscado
@@ -64,9 +64,11 @@ public class BST<T extends Comparable<T>>{
     public Producto buscarPorSKU(String sku) {
         return buscarPorSKU(raiz, sku);
     }
-    
+
     /**
-     * Método encargado de buscar un producto en el BST en base a su SKU
+     * Método encargado de buscar un producto en el BST en base a su SKU.
+     * Este método recorre todo el árbol (inorder traversal) ya que el árbol está
+     * organizado por precio, no por SKU.
      * @param nodo nodo raiz del BST
      * @param sku código único SKU del producto a buscar
      * @return el producto asociado al SKU buscado
@@ -75,13 +77,19 @@ public class BST<T extends Comparable<T>>{
         if (nodo == null) {
             return null;
         }
-        int comparacion = sku.compareTo(nodo.getProducto().getSku());
-        if (comparacion == 0) {
-            return nodo.getProducto();
-        } else if (comparacion < 0) {
-            return buscarPorSKU(nodo.getLeftNode(), sku);
-        } else {
-            return buscarPorSKU(nodo.getRightNode(), sku);
+        
+        // Buscar en el subárbol izquierdo
+        Producto encontradoIzquierda = buscarPorSKU(nodo.getLeftNode(), sku);
+        if (encontradoIzquierda != null) {
+            return encontradoIzquierda;
         }
+        
+        // Verificar el nodo actual
+        if (nodo.getProducto().getSku().equals(sku)) {
+            return nodo.getProducto();
+        }
+        
+        // Buscar en el subárbol derecho
+        return buscarPorSKU(nodo.getRightNode(), sku);
     }
 }
