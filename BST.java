@@ -55,4 +55,33 @@ public class BST<T extends Comparable<T>>{
             }
         }
     }
+
+    /**
+     * Método encargado de buscar un producto en el BST en base a su SKU
+     * @param sku código único SKU del producto a buscar
+     * @return el producto asociado al SKU buscado
+     */
+    public Producto buscarPorSKU(String sku) {
+        return buscarPorSKU(raiz, sku);
+    }
+    
+    /**
+     * Método encargado de buscar un producto en el BST en base a su SKU
+     * @param nodo nodo raiz del BST
+     * @param sku código único SKU del producto a buscar
+     * @return el producto asociado al SKU buscado
+     */
+    private Producto buscarPorSKU(Nodo nodo, String sku) {
+        if (nodo == null) {
+            return null;
+        }
+        int comparacion = sku.compareTo(nodo.getProducto().getSku());
+        if (comparacion == 0) {
+            return nodo.getProducto();
+        } else if (comparacion < 0) {
+            return buscarPorSKU(nodo.getLeftNode(), sku);
+        } else {
+            return buscarPorSKU(nodo.getRightNode(), sku);
+        }
+    }
 }
