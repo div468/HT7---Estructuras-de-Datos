@@ -22,6 +22,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // Crear un HashMap que mapea categorías a sus respectivos BSTs
+        System.out.println("\nMarcelo Detlefsen - Hoja de Trabajo 7 - Julían Divas");
         HashMap<String, BST<Producto>> categoryBSTs = new HashMap<>();
         
         // Leer el archivo CSV
@@ -36,8 +37,7 @@ public class Main {
             boolean continuar = true;
             
             while (continuar) {
-                System.out.println("\nMarcelo Detlefsen - Hoja de Trabajo 7 - Julían Divas");
-                System.out.println("        --- Sistema de Búsqueda de Productos ---");
+                System.out.println("\n        --- Sistema de Búsqueda de Productos ---");
                 System.out.println("1. Buscar un producto en base al SKU.");
                 System.out.println("2. Salir del programa.");
                 System.out.print("Ingrese su opción: ");
