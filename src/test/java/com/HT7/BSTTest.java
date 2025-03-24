@@ -4,6 +4,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Universidad del Valle de Guatemala
+ * Algoritmos y Estructuras de Datos
+ * Ing. Douglas Barrios
+ * @author: Julián Divas
+ * Creación: 24/03/2025
+ * última modificación: 24/03/2025
+ * File Name: BST.java
+ * Descripción: Clase dedicada a las pruebas unitarias de la clase BST.java
+ */
+
 public class BSTTest {
 
     private BST<Producto> bst;
