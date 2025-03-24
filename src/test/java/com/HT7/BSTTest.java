@@ -4,38 +4,41 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Universidad del Valle de Guatemala
- * Algoritmos y Estructuras de Datos
- * Ing. Douglas Barrios
- * @author: Marcelo Detlefsen
- * Creación: 23/03/2025
- * última modificación: 23/03/2025
- * File Name: BSTTest.java
- * Descripción: Pruebas unitarias para la clase BST
- */
 public class BSTTest {
-    
+
     private BST<Producto> bst;
     private Producto producto1;
     private Producto producto2;
     private Producto producto3;
-    
+
+    // Inicializa un BST vacío antes de las pruebas
     @BeforeEach
-    void setUp() {
-        // Inicializar el BST antes de cada prueba
+    public void setUp() {
         bst = new BST<>();
-        
-        // Crear productos de prueba con diferentes precios
+
         producto1 = new Producto("SKU001", "Producto 1", "Electrónica", 100.0, 150.0);
         producto2 = new Producto("SKU002", "Producto 2", "Electrónica", 50.0, 75.0);
         producto3 = new Producto("SKU003", "Producto 3", "Electrónica", 200.0, 250.0);
     }
-    
+
+    /*
+     * Comprueba que se añade un nodo correctamente
+     */
+    @Test
+    public void testRaizIgual() {
+        Producto producto = new Producto("SKU1", "Producto1", "Categoria1", 100.0, 150.0);
+
+        bst.nuevoNodo(producto);
+
+        Nodo raiz = bst.getRaiz();
+
+        assertEquals(producto, raiz.getProducto(), "El producto en la raíz debería ser igual al primer producto que se insertó.");
+    }
+
     @Test
     void testAñadirNodo() {
         // Añadir un nodo al BST vacío
-        bst.añadirNodo(producto1);
+        bst.nuevoNodo(producto1);
         
         // Buscar el producto por SKU
         Producto encontrado = bst.buscarPorSKU("SKU001");
@@ -48,9 +51,9 @@ public class BSTTest {
     @Test
     void testAñadirMultiplesNodos() {
         // Añadir múltiples nodos al BST
-        bst.añadirNodo(producto1); // 100.0
-        bst.añadirNodo(producto2); // 50.0
-        bst.añadirNodo(producto3); // 200.0
+        bst.nuevoNodo(producto1); // 100.0
+        bst.nuevoNodo(producto2); // 50.0
+        bst.nuevoNodo(producto3); // 200.0
         
         // Buscar cada producto por SKU
         Producto encontrado1 = bst.buscarPorSKU("SKU001");
@@ -71,8 +74,8 @@ public class BSTTest {
     @Test
     void testBuscarProductoInexistente() {
         // Añadir algunos productos al BST
-        bst.añadirNodo(producto1);
-        bst.añadirNodo(producto2);
+        bst.nuevoNodo(producto1);
+        bst.nuevoNodo(producto2);
         
         // Buscar un SKU que no existe
         Producto encontrado = bst.buscarPorSKU("SKU999");
@@ -99,8 +102,8 @@ public class BSTTest {
         Producto productoB = new Producto("DIFERENTE_SKU", "Producto B", "Categoría", 50.0, 80.0);
         
         // Añadir los productos al BST
-        bst.añadirNodo(productoA);
-        bst.añadirNodo(productoB);
+        bst.nuevoNodo(productoA);
+        bst.nuevoNodo(productoB);
         
         // Verificar que el productoB (precio menor) está a la izquierda del productoA
         // Esto se puede verificar indirectamente asegurando que ambos productos se pueden encontrar correctamente
@@ -120,8 +123,8 @@ public class BSTTest {
         Producto productoB = new Producto("MISMO_SKU", "Producto B", "Categoría", 80.0, 120.0);
         
         // Añadir los productos al BST
-        bst.añadirNodo(productoA);
-        bst.añadirNodo(productoB);
+        bst.nuevoNodo(productoA);
+        bst.nuevoNodo(productoB);
         
         // Buscar el producto por SKU
         Producto encontrado = bst.buscarPorSKU("MISMO_SKU");

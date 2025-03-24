@@ -142,7 +142,7 @@ public class Main {
                 BST<Producto> bst = categoryBSTs.getOrDefault(category, new BST<>());
                 
                 // Añadir el producto al BST
-                bst.añadirNodo(producto);
+                bst.nuevoNodo(producto);
                 
                 // Guardar el BST actualizado en el mapa
                 categoryBSTs.put(category, bst);

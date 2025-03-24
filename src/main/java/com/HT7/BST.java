@@ -93,4 +93,8 @@ public class BST<T extends Comparable<T>>{
         // Buscar en el subárbol derecho
         return buscarPorSKU(nodo.getRightNode(), sku);
     }
+
+    public Nodo getRaiz(){
+        return raiz;
+    }
 }
