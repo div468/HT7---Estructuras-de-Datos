@@ -1,5 +1,5 @@
 # HT7 - Estructuras de Datos
-Implementación de Binary Search Trees (BST).
+https://github.com/div468/HT7---Estructuras-de-Datos.git
 
 # 📊 Implementación de Binary Search Trees (BST)
 Esta tarea consiste en una implementación de un **Binary Search Tree (BST)** en Java, y consiste en organizar y buscar productos basados en su SKU y precios. El programa lee un archivo CSV que contiene información de productos, los organiza en BSTs por categoría, y permite al usuario buscar productos por su SKU.
